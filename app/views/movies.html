@@ -1,0 +1,19 @@
+<div>
+    <h1>{{ vm.title }}</h1>
+    <label for="name">Search for a Movie:</label><input id="name" type="text" ng-model="searchText" >
+    <button ng-click="vm.showSearchText()">OK</button>
+    <div>
+        One time binding
+        <ul>
+            <li ng-repeat="movie in vm.movies | filter: vm.searchText">
+                {{ vm.movie.name }}
+            </li>
+        </ul>
+        Two way binding
+        <ul>
+            <li ng-repeat="movie in vm.movies | filter: vm.searchText | orderBy: 'name'">
+                <a href="#/tickets/{{ ::vm.movie.id }}">{{ vm.movie.name }}</a>
+            </li>
+        </ul>
+    </div>
+</div>

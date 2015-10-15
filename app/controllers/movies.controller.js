@@ -21,7 +21,7 @@
 
         function init(){
             dataService.getMovies()
-            .then(function(){
+            .then(function(data){
                 vm.movies = data;
             })
             .error(function(data, status, headers, config){
